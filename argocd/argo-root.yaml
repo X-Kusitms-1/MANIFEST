@@ -1,0 +1,21 @@
+# argocd/argo-root.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ilhaeng-root
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/X-Kusitms-1/MANIFEST.git
+    targetRevision: HEAD
+    path: argocd/envs           # ← 여기엔 “자식 Application YAML들”만 존재
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd           # 루트 앱 자체가 존재할 네임스페이스
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
