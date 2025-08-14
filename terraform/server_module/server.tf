@@ -88,9 +88,25 @@ resource "ncloud_server" "this" {
 
   # 네트워크 규칙은 기본 ACG에 넣었으므로 여기선 생략
   # access_control_group_no_list = (X)
-
-  user_data = var.user_data
 }
+
+#######################################
+# 비밀번호 받아오기 (옵션)
+#######################################
+data "ncloud_root_password" "root_pw" {
+  count              = var.save_root_password ? 1 : 0
+  server_instance_no = ncloud_server.this.instance_no
+
+  # generate_login_key=true면 TF가 만든 키, 아니면 로컬 .pem 파일에서 읽기
+  private_key = var.generate_login_key ? ncloud_login_key.gen[0].private_key : file("${path.root}/${var.pem_output_dir}/${var.login_key_name}.pem")
+}
+
+resource "local_sensitive_file" "root_pw" {
+  count    = var.save_root_password ? 1 : 0
+  filename = "${ncloud_server.this.name}-root_password.txt"
+  content  = data.ncloud_root_password.root_pw[0].root_password
+}
+
 #######################################
 # Public IP (optional)
 #######################################

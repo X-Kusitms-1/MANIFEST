@@ -114,12 +114,6 @@ variable "assign_public_ip" {
   default     = true
 }
 
-variable "user_data" {
-  type        = string
-  description = "초기 부팅 스크립트(선택). 없으면 null"
-  default     = null
-}
-
 variable "generate_login_key" {
   type        = bool
   default     = false

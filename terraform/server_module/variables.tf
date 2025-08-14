@@ -29,12 +29,6 @@ variable "assign_public_ip" {
   default     = true
 }
 
-variable "user_data" {
-  type        = string
-  description = "Cloud-init user data (optional)"
-  default     = null
-}
-
 variable "login_key_name" {
   type        = string
   description = "NCP 로그인 키 이름. generate_login_key=true면 이 이름으로 생성됨"
@@ -52,3 +46,8 @@ variable "pem_output_dir" {
   description = "생성된 pem 저장 경로(루트 기준)"
 }
 
+variable "save_root_password" {
+  type        = bool
+  default     = true
+  description = "루트 비밀번호를 복호화/저장할지 여부(기본 false)"
+}

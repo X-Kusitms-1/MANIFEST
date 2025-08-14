@@ -23,3 +23,14 @@ output "final_spec_code" {
   value       = try(data.ncloud_server_product.spec.product_code, null)
   description = "ncloud_server_product.spec 의 product_code"
 }
+
+output "root_password_file" {
+  value       = try(local_sensitive_file.root_pw[0].filename, null)
+  description = "루트 비밀번호가 저장된 로컬 파일 경로(토글 꺼져 있으면 null)"
+}
+
+# 꼭 필요할 때만 노출 (민감)
+output "root_password" {
+  value     = try(data.ncloud_root_password.root_pw[0].root_password, null)
+  sensitive = true
+}

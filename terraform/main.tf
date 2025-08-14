@@ -41,5 +41,4 @@ module "server_module" {
   server_image_product_code = var.server_image_product_code
   server_product_code       = var.server_product_code
   assign_public_ip          = var.assign_public_ip
-  user_data                 = var.user_data
 }
