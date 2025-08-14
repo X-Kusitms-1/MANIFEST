@@ -103,7 +103,7 @@ data "ncloud_root_password" "root_pw" {
 
 resource "local_sensitive_file" "root_pw" {
   count    = var.save_root_password ? 1 : 0
-  filename = "${ncloud_server.this.name}-root_password.txt"
+  filename = "${path.root}/keys/${ncloud_server.this.name}-root_password.txt"
   content  = data.ncloud_root_password.root_pw[0].root_password
 }
 
