@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/X-Kusitms-1/MANIFEST.git
-    targetRevision: develop           # develop 브랜치로 바꿔도 됨
+    targetRevision: main           # develop 브랜치로 바꿔도 됨
     path: staging                  # <- 이 디렉터리만 동기화
     directory:
       recurse: true

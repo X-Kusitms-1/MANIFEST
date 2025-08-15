@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ilhaeng-production-service
+  namespace: production
+spec:
+  selector:
+    app: ilhaeng-production
+  ports:
+    - port: 80
+      targetPort: 8080

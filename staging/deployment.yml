@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ilhaeng-staging
+  namespace: staging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ilhaeng-staging
+  template:
+    metadata:
+      labels:
+        app: ilhaeng-staging
+    spec:
+      containers:
+        - name: ilhaeng
+          image: leosunghojung/ilhaeng:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
