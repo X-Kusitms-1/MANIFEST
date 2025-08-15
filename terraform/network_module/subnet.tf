@@ -33,11 +33,33 @@ resource "ncloud_access_control_group_rule" "default_rules" {
     port_range  = "80"
     description = "HTTP"
   }
+
   inbound {
     protocol    = "TCP"
     ip_block    = "0.0.0.0/0"
     port_range  = "443"
     description = "HTTPS"
+  }
+
+  inbound {
+    protocol    = "TCP"
+    ip_block    = "0.0.0.0/0"
+    port_range  = "8081"
+    description = "Green"
+  }
+
+  inbound {
+    protocol    = "TCP"
+    ip_block    = "0.0.0.0/0"
+    port_range  = "8080"
+    description = "Blue"
+  }
+
+  inbound {
+    protocol    = "TCP"
+    ip_block    = "0.0.0.0/0"
+    port_range  = "6443"
+    description = "kubectl"
   }
 
   # Outbound: all TCP
