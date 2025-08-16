@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: prod.ilhaeng.cloud
+    - host: prd.ilhaeng.cloud
       http:
         paths:
           - path: /

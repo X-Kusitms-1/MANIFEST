@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: stage.ilhaeng.cloud  # 스테이징 환경의 호스트 이름!
+    - host: stg.ilhaeng.cloud  # 스테이징 환경의 호스트 이름!
       http:
         paths:
           - path: /
