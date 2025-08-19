@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ilhaeng
-          image: leosunghojung/ilhaeng:d65ad2a
+          image: leosunghojung/ilhaeng:62ce103
           ports:
             - containerPort: 8080
           env:
