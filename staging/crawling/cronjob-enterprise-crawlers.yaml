@@ -4,7 +4,7 @@ kind: CronJob
 metadata:
   name: enterprise-crawlers
 spec:
-  schedule: "30 22 * * *"
+  schedule: "50 22 * * *"
   timeZone: "Asia/Seoul"         # (K8s 1.27+)
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 2
@@ -18,7 +18,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: crawlers
-              image: your-registry/enterprise-crawlers:latest
+              image: leosunghojung/ilhaeng-crawling:latest
               command: ["sh","-c"]
               args:
                 - >
