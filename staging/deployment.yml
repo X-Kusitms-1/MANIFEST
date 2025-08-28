@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: ilhaeng
-          image: leosunghojung/ilhaeng:f2ff125
+          image: leosunghojung/ilhaeng:be02ca0
           ports:
             - containerPort: 8080
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: dev
+              value: stage
