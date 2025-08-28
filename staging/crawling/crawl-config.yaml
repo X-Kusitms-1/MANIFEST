@@ -5,7 +5,7 @@ metadata:
   name: crawler-config
 data:
   # Presigned URL 발급 API
-  PRESIGN_API: "http://ilhaeng-staging-service:8080"
+  PRESIGN_API: "http://ilhaeng-staging-service:80"
 
   # 크롤러 공통 ENV (각 스크립트가 읽어감)
   OUTDIR: "/data/out"
