@@ -19,19 +19,12 @@ spec:
           restartPolicy: Never
           containers:
             - name: crawlers
-              image: leosunghojung/ilhaeng-crawling:latest
-              command: ["sh","-c"]
+              image: leosunghojung/ilhaeng-crawling:75c2b66
+              command: ["sh", "-c"]
               args:
                 - >
-                  python run_all.py
-                  --include '*-r.py' --include '*-oa.py' --exclude __init__.py
-                  --concurrency ${CONCURRENCY:-3}
-                  --timeout ${TIMEOUT:-2400}
-                  --retries ${RETRIES:-1}
-                  --pages ${PAGES:-1-3}
-                  --detail-delay ${DETAIL_DELAY:-0.3}
-                  --workers ${WORKERS:-6}
-                  --ncp-prefix ${NCP_DEFAULT_DIR:-prod}
+                  python run_all.py --include '*-r.py' --include '*-oa.py' --exclude __init__.py --concurrency ${CONCURRENCY:-3} --timeout ${TIMEOUT:-2400} --retries ${RETRIES:-1} --pages ${PAGES:-1-3} --detail-delay ${DETAIL_DELAY:-0.3} --workers ${WORKERS:-6} --ncp-prefix ${NCP_DEFAULT_DIR:-prod}
+
               envFrom:
                 - configMapRef:
                     name: crawler-config
