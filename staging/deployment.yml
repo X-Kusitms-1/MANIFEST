@@ -5,6 +5,7 @@ metadata:
   namespace: staging
 spec:
   replicas: 1
+  revisionHistoryLimit: 5
   selector:
     matchLabels:
       app: ilhaeng-staging
