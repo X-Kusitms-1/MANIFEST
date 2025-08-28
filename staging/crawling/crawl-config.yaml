@@ -1,0 +1,29 @@
+# crawler-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: crawler-config
+data:
+  # Presigned URL 발급 API
+  PRESIGN_API: "http://spring-api-service:8080"
+
+  # 크롤러 공통 ENV (각 스크립트가 읽어감)
+  OUTDIR: "/data/out"
+  NCP_DEFAULT_DIR: "prod"      # 업로드 루트 prefix
+  PAGES: "1-3"
+  DETAIL_DELAY: "0.3"
+  WORKERS: "6"
+  TZ: "Asia/Seoul"
+
+  # run_all.py 실행 파라미터(쉘에서 env 확장해 args로 전달)
+  CONCURRENCY: "3"
+  TIMEOUT: "2400"              # 초
+  RETRIES: "1"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: crawler-secret
+type: Opaque
+stringData:
+  presign-auth: "Bearer XXXXXX"
