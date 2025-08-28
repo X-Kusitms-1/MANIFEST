@@ -5,12 +5,12 @@ metadata:
   name: crawler-config
 data:
   # Presigned URL 발급 API
-  PRESIGN_API: "http://spring-api-service:8080"
+  PRESIGN_API: "http://ilhaeng-staging-service:8080"
 
   # 크롤러 공통 ENV (각 스크립트가 읽어감)
   OUTDIR: "/data/out"
-  NCP_DEFAULT_DIR: "prod"      # 업로드 루트 prefix
-  PAGES: "1-3"
+  NCP_DEFAULT_DIR: "stage"      # 업로드 루트 prefix
+  PAGES: "1"
   DETAIL_DELAY: "0.3"
   WORKERS: "6"
   TZ: "Asia/Seoul"
