@@ -4,7 +4,7 @@ kind: CronJob
 metadata:
   name: enterprise-crawlers
 spec:
-  schedule: "10 23 * * *"
+  schedule: "26 23 * * *"
   timeZone: "Asia/Seoul"         # (K8s 1.27+)
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 2
@@ -23,7 +23,7 @@ spec:
               args:
                 - >
                   python run_all.py
-                  --include '*-r.py' --include '*-o.py' --exclude __init__.py
+                  --include '*-r.py' --include '*-oa.py' --exclude __init__.py
                   --concurrency ${CONCURRENCY:-3}
                   --timeout ${TIMEOUT:-2400}
                   --retries ${RETRIES:-1}
