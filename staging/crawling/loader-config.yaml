@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: loader-config
+data:
+  # Redis / MySQL (서비스 DNS)
+  REDIS_HOST: "redis-service"
+  REDIS_PORT: "6379"
+  MYSQL_HOST: "mysql"
+  MYSQL_PORT: "3306"
+  MYSQL_DB:   "ilhaeng"
+
+  # Redis Streams / Consumer Group
+  STREAM_RECORDS:   "crawl:records"
+  STREAM_COMPLETED: "crawl:completed"
+  GROUP_RECORDS:    "db-loaders"
+  GROUP_COMPLETED:  "db-sentinels"
+  GROUP_START_RECORDS:   "0-0"   # 백로그 포함
+  GROUP_START_COMPLETED: "0-0"
+
+  # 종료/대기
+  QUIET_SECONDS:   "180"
+  MAX_RUN_SECONDS: "3600"
+
+  # 로깅/옵션
+  LOG_LEVEL: "INFO"
+  COMPANY_ID_COLUMN: "id"
+  REQUIRED_SOURCES: ""           # "toss,naver,kakao" 처럼 쓰면 모두 올 때까지 대기
+  DELETE_RECORDS:   "false"      # ACK 직후 XDEL
+  DELETE_SENTINELS: "false"
+  TRIM_ON_EXIT:     "false"
+  KEEP_LAST_RECORDS: "0"
+  KEEP_LAST_COMPLETED: "0"
+
+  # 소스→회사명 매핑(JSON)
+  COMPANY_MAP_JSON: |
+    {"toss":["Toss","토스"],"kakao":["Kakao","카카오"],"naver":["Naver","네이버"]}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: db-secret
+type: Opaque
+stringData:
+  user: "ilhaeng"
+  password: "ilhaeng7897!"

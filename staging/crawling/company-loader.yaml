@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: company-news-loader
+  namespace: default
+spec:
+  schedule: "15 7 * * *"
+  timeZone: Asia/Seoul
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 2
+  startingDeadlineSeconds: 3600
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 3600
+      backoffLimit: 1
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: loader
+              image: leosunghojung/ilhaeng-loader:latest
+              imagePullPolicy: IfNotPresent
+              command: ["python","/app/loader_company_news.py"]
+              envFrom:
+                - configMapRef:
+                    name: loader-config        # 👈 로더 전용 설정
+                - secretRef:
+                    name: db-secret           # 👈 DB 계정
+              resources:
+                requests: { cpu: "50m", memory: "128Mi" }
+                limits:   { cpu: "500m", memory: "512Mi" }
