@@ -5,7 +5,7 @@ metadata:
   name: enterprise-crawlers
 spec:
   schedule: "11 13 * * *"
-  timeZone: "Asia/Seoul"         # (K8s 1.27+)
+  timeZone: "Asia/Seoul" # (K8s 1.27+)
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 2
   failedJobsHistoryLimit: 2
@@ -19,7 +19,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: crawlers
-              image: leosunghojung/ilhaeng-crawling:75c2b66
+              image: leosunghojung/ilhaeng-crawling:6b10250
               command: ["sh", "-c"]
               args:
                 - >
