@@ -19,7 +19,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: loader
-              image: leosunghojung/ilhaeng-company-news-loader:fbfaba5
+              image: leosunghojung/ilhaeng-company-news-loader:df70995
               imagePullPolicy: IfNotPresent
               command: ["python", "/app/loader_company_news.py"]
               envFrom:
