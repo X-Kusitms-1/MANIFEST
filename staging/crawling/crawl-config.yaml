@@ -19,6 +19,8 @@ data:
   CONCURRENCY: "3"
   TIMEOUT: "2400"              # 초
   RETRIES: "1"
+
+  REDIS_URL: "redis://redis-service:6379/0"
 ---
 apiVersion: v1
 kind: Secret
