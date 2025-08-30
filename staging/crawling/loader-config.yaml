@@ -26,8 +26,8 @@ data:
   LOG_LEVEL: "INFO"
   COMPANY_ID_COLUMN: "id"
   REQUIRED_SOURCES: ""           # "toss,naver,kakao" 처럼 쓰면 모두 올 때까지 대기
-  DELETE_RECORDS:   "false"      # ACK 직후 XDEL
-  DELETE_SENTINELS: "false"
+  DELETE_RECORDS:   "true"      # ACK 직후 XDEL
+  DELETE_SENTINELS: "true"
   TRIM_ON_EXIT:     "false"
   KEEP_LAST_RECORDS: "0"
   KEEP_LAST_COMPLETED: "0"
