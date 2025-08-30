@@ -19,14 +19,14 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: loader
-              image: leosunghojung/ilhaeng-loader:latest
+              image: leosunghojung/ilhaeng-company-news-loader:fbfaba5
               imagePullPolicy: IfNotPresent
-              command: ["python","/app/loader_company_news.py"]
+              command: ["python", "/app/loader_company_news.py"]
               envFrom:
                 - configMapRef:
-                    name: loader-config        # 👈 로더 전용 설정
+                    name: loader-config # 👈 로더 전용 설정
                 - secretRef:
-                    name: db-secret           # 👈 DB 계정
+                    name: db-secret # 👈 DB 계정
               resources:
-                requests: { cpu: "50m", memory: "128Mi" }
-                limits:   { cpu: "500m", memory: "512Mi" }
+                requests: {cpu: "50m", memory: "128Mi"}
+                limits: {cpu: "500m", memory: "512Mi"}
