@@ -4,7 +4,7 @@ metadata:
   name: company-news-loader
   namespace: default
 spec:
-  schedule: "22 1 * * *"
+  schedule: "23 1 * * *"
   timeZone: Asia/Seoul
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
