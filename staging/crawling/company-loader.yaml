@@ -21,7 +21,7 @@ spec:
             - name: loader
               image: leosunghojung/ilhaeng-company-news-loader:df70995
               imagePullPolicy: IfNotPresent
-              command: ["python", "/app/loader_company_news.py"]
+              command: ["python", "/app/company_news_loader.py"]
               envFrom:
                 - configMapRef:
                     name: loader-config # 👈 로더 전용 설정
