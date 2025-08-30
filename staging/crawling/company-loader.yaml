@@ -2,9 +2,9 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: company-news-loader
-  namespace: default
+  namespace: staging
 spec:
-  schedule: "23 1 * * *"
+  schedule: "26 1 * * *"
   timeZone: Asia/Seoul
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
