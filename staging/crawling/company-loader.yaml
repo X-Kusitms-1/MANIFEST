@@ -4,7 +4,7 @@ metadata:
   name: company-news-loader
   namespace: staging
 spec:
-  schedule: "9 2 * * *"
+  schedule: "16 2 * * *"
   timeZone: Asia/Seoul
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
@@ -13,7 +13,7 @@ spec:
   jobTemplate:
     spec:
       activeDeadlineSeconds: 3600
-      backoffLimit: 1
+      backoffLimit: 10
       template:
         spec:
           restartPolicy: OnFailure
