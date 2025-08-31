@@ -4,7 +4,7 @@ kind: CronJob
 metadata:
   name: enterprise-crawlers
 spec:
-  schedule: "40 11 * * *"
+  schedule: "26 13 * * *"
   timeZone: "Asia/Seoul" # (K8s 1.27+)
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 2

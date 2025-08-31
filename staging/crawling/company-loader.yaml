@@ -4,7 +4,7 @@ metadata:
   name: company-news-loader
   namespace: staging
 spec:
-  schedule: "40 11 * * *"
+  schedule: "26 13 * * *"
   timeZone: Asia/Seoul
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
