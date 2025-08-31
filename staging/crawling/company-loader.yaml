@@ -12,6 +12,7 @@ spec:
   startingDeadlineSeconds: 3600
   jobTemplate:
     spec:
+#      ttlSecondsAfterFinished: 3600 # 1 hour
       activeDeadlineSeconds: 3600
       backoffLimit: 1
       template:
