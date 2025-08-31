@@ -12,14 +12,14 @@ spec:
   startingDeadlineSeconds: 1800
   jobTemplate:
     spec:
-#      ttlSecondsAfterFinished: 3600 # 1 hour
+      #      ttlSecondsAfterFinished: 3600 # 1 hour
       backoffLimit: 1
       template:
         spec:
           restartPolicy: Never
           containers:
             - name: crawlers
-              image: leosunghojung/ilhaeng-crawling:fbfaba5
+              image: leosunghojung/ilhaeng-crawling:53784b7
               command: ["sh", "-c"]
               args:
                 - >
