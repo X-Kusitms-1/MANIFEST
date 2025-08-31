@@ -8,16 +8,6 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: stg.ilhaeng.cloud  # 스테이징 환경의 호스트 이름!
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: ilhaeng-staging-service  # Service의 이름!
-                port:
-                  number: 80
     - host: stg.next-career.co.kr
       http:
         paths:
