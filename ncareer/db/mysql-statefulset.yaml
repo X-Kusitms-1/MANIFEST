@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: mysql:latest
+          image: mysql:8
           args:
             - "--character-set-server=utf8mb4"
             - "--collation-server=utf8mb4_0900_ai_ci"
