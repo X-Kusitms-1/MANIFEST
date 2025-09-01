@@ -1,0 +1,25 @@
+# ilhaeng-backend-staging.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ncareer
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/X-Kusitms-1/MANIFEST.git
+    targetRevision: main           # develop 브랜치로 바꿔도 됨
+    path: ncareer                  # <- 이 디렉터리만 동기화
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ncareer
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true

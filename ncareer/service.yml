@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ncareer-service
+  namespace: ncareer
+spec:
+  selector:
+    app: ncareer
+  ports:
+    - port: 80
+      targetPort: 8080
