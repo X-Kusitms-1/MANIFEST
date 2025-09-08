@@ -16,7 +16,7 @@ spec:
 
         extraEnvs:
           - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
-            value: "ilhaeng7897!"
+            value: "Ilhaeng7897!"
 
         resources:
           requests:
