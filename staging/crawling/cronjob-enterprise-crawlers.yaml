@@ -19,7 +19,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: crawlers
-              image: leosunghojung/ilhaeng-crawling:db395f1
+              image: leosunghojung/ilhaeng-crawling:6754f0d
               command: ["sh", "-c"]
               args:
                 - >
