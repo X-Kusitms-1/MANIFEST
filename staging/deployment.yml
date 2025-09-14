@@ -4,8 +4,8 @@ metadata:
   name: ilhaeng-staging
   namespace: staging
 spec:
-  replicas: 1
-  revisionHistoryLimit: 5
+  replicas: 2
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: ilhaeng-staging
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: ilhaeng
-          image: leosunghojung/ilhaeng:d8e41d7
+          image: leosunghojung/ilhaeng:5d99c2f
           ports:
             - containerPort: 8080
           env:
