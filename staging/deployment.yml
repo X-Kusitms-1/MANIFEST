@@ -4,7 +4,7 @@ metadata:
   name: ilhaeng-staging
   namespace: staging
 spec:
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 3
   selector:
     matchLabels:
