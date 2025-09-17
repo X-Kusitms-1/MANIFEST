@@ -28,6 +28,8 @@ spec:
               value: "-Xms768m -Xmx768m"
             - name: TZ
               value: "Asia/Seoul"
+            - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
+              value: Ilhaeng7897!
           volumeMounts:
             - name: data
               mountPath: /usr/share/opensearch/data
